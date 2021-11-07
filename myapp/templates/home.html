@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block body %}
+		<h1> Welcome {{name}}</h1>
+
+		<a href="https://www.google.com">goooogle</a>
+		
+		<ul>
+			<li>London</li>
+ 			<li>Rome</li>
+ 			<li>Tahiti</li>
+		{% for city in top_cities %}
+			<li>{{city.cityName}}</li>
+		{% endfor %}
+		</ul>
+
+		<form action="" method="POST">
+			{{form.hidden_tag()}}		
+			<p>
+				{{form.cityName.label}}
+				{{form.cityName(size=32)}}
+			</p>
+		
+			<p>
+				{{form.cityRank.label}}
+				{{form.cityRank(size=32)}}
+			</p>
+
+			<p>
+				{{form.isVisited.label}}
+				{{form.isVisited(size=32)}}
+			</p>
+
+			<p>
+				{{form.submit.label}}
+				{{form.submit(size=32)}}
+			</p>
+		</form>
+
+		{% with messages = get_flashed_messages() %}
+                {% if messages %}
+                        {% for message in messages %}
+                        {{message}}
+                        {% endfor %}
+                {% endif %}{% endwith %}		
+{% endblock %}
