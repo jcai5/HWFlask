@@ -17,13 +17,13 @@
 		<form action="" method="POST">
 			{{form.hidden_tag()}}		
 			<p>
-				{{form.cityName.label}}
-				{{form.cityName(size=32)}}
+				{{form.city_name.label}}
+				{{form.city_name(size=32)}}
 			</p>
 		
 			<p>
-				{{form.cityRank.label}}
-				{{form.cityRank(size=32)}}
+				{{form.city_rank.label}}
+				{{form.city_rank(size=32)}}
 			</p>
 
 			<p>
@@ -36,11 +36,10 @@
 				{{form.submit(size=32)}}
 			</p>
 		</form>
-
 		{% with messages = get_flashed_messages() %}
-                {% if messages %}
-                        {% for message in messages %}
-                        {{message}}
-                        {% endfor %}
-                {% endif %}{% endwith %}		
+		{% if messages %}
+			{% for message in messages %}
+			{{message}}
+			{% endfor %}
+		{% endif %}{% endwith %}		
 {% endblock %}
